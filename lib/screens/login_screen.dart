@@ -113,7 +113,7 @@ class _LoginFormState extends State<_LoginForm> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => FeedScreens()
+                                          builder: (context) => NavigationTab()
                                       )
                                   );
                                 } else {
