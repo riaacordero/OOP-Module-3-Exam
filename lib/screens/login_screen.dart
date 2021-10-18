@@ -33,7 +33,7 @@ class LoginScreen extends StatelessWidget {
                           style: TextStyle(
                               color: Color(0xFF535353), fontSize: 15),
                               textAlign: TextAlign.center,),
-                      Padding(padding: EdgeInsets.symmetric(vertical:10)),
+                      const Padding(padding: EdgeInsets.symmetric(vertical:10)),
                       SvgPicture.asset('assets/img/landing-art.svg',width: 250,height:250,alignment: Alignment.center,)
                     ],
                   ),
@@ -71,7 +71,7 @@ class _LoginFormState extends State<_LoginForm> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(padding: const EdgeInsets.symmetric(vertical: 5)),
+                const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
                 TextFormField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -80,10 +80,10 @@ class _LoginFormState extends State<_LoginForm> {
                         fillColor: Colors.white,
                         hintText: "Username",
                         prefixIcon:
-                            Icon(Icons.person, color: Color(0xFF9BABC2)),
-                        errorStyle: TextStyle(height: 0)),
+                            const Icon(Icons.person, color: Color(0xFF9BABC2)),
+                        errorStyle: const TextStyle(height: 0)),
                     validator: (value) => value == "admin" ? null : ''),
-                Padding(padding: const EdgeInsets.symmetric(vertical: 5)),
+                const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
                 TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
@@ -92,11 +92,11 @@ class _LoginFormState extends State<_LoginForm> {
                         filled: true,
                         fillColor: Colors.white,
                         hintText: "Password",
-                        prefixIcon: Icon(Icons.lock, color: Color(0xFF9BABC2)),
-                        errorStyle: TextStyle(height: 0)),
+                        prefixIcon: const Icon(Icons.lock, color: Color(0xFF9BABC2)),
+                        errorStyle: const TextStyle(height: 0)),
                     validator: (value) => value == "admin" ? null : ''),
-                Padding(padding: const EdgeInsets.symmetric(vertical: 5)),
-                Container(
+                const Padding(padding: EdgeInsets.symmetric(vertical: 5)),
+                SizedBox(
                     width: double.infinity,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 15),
@@ -123,7 +123,7 @@ class _LoginFormState extends State<_LoginForm> {
                                 //   );
                                 // }
                               },
-                              child: Text("Login",
+                              child: const Text("Login",
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 16)),
                               style: ElevatedButton.styleFrom(
@@ -144,13 +144,13 @@ class _LoginFormState extends State<_LoginForm> {
                                 //     )
                                 // );
                               },
-                              child: Text("Create Account",
+                              child: const Text("Create Account",
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 16)),
                               style: ElevatedButton.styleFrom(
-                                  primary: Color(0xFF0056D7),
+                                  primary: const Color(0xFF0056D7),
                                   side: const BorderSide(color: Colors.white),
-                                  shape: StadiumBorder()),
+                                  shape: const StadiumBorder()),
                             ),
                           ),
                         ],
