@@ -1,6 +1,9 @@
+import 'package:chika/others/navigation_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'news_feed.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -106,43 +109,43 @@ class _LoginFormState extends State<_LoginForm> {
                             width: 200,
                             child: ElevatedButton(
                               onPressed: () {
-                                // if (_formKey.currentState!.validate()) {
-                                //   Navigator.push(
-                                //       context,
-                                //       MaterialPageRoute(
-                                //           builder: (context) => DashboardScreen()
-                                //       )
-                                //   );
-                                // } else {
-                                //   ScaffoldMessenger.of(context).showSnackBar(
-                                //     SnackBar(
-                                //       content: Text(
-                                //         'Invalid credentials. Please try again!'
-                                //       )
-                                //     )
-                                //   );
-                                // }
+                                if (_formKey.currentState!.validate()) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => FeedScreens()
+                                      )
+                                  );
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text(
+                                        'Invalid credentials. Please try again!'
+                                      )
+                                    )
+                                  );
+                                }
                               },
                               child: const Text("Login",
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 16)),
                               style: ElevatedButton.styleFrom(
-                                  primary: Color(0xFFE39600),
-                                  shape: StadiumBorder()),
+                                  primary: const Color(0xFFE39600),
+                                  shape: const StadiumBorder()),
                             ),
                           ),
-                          Text("or", style: TextStyle(color: Colors.white)),
+                          const Text("or", style: TextStyle(color: Colors.white)),
                           SizedBox(
                             width: 200,
                             child: ElevatedButton(
                               onPressed: () {
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) =>
-                                //         UnderConstructionScreen()
-                                //     )
-                                // );
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                        const NewsFeed()
+                                    )
+                                );
                               },
                               child: const Text("Create Account",
                                   style: TextStyle(
