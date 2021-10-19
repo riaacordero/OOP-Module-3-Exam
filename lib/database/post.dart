@@ -5,7 +5,7 @@ class Post {
   Post(this.username, this.message);
 }
 
-List<Post> post = PostData
+List<Post> post = postData
     .map(
       (item) => Post(
           item['username'] as String,
@@ -13,7 +13,7 @@ List<Post> post = PostData
       ),
     ).toList();
 
-var PostData = [
+var postData = [
   {
     "username": "riaacordero",
     "message": "Hi sir gikapoy nakog code ahihi",

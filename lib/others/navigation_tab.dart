@@ -15,11 +15,11 @@ class NavigationTab extends StatefulWidget {
 class _NavigationTabState extends State<NavigationTab> {
   int _selected = 0;
 
-  final List _screens = [
-    const NewsFeed(),
-    const SearchScreen(),
-    const NotificationScreen(),
-    const ProfileScreen()
+  final List _screens = const [
+    NewsFeed(),
+    SearchScreen(),
+    NotificationScreen(),
+    ProfileScreen()
   ];
 
   @override
@@ -40,7 +40,7 @@ class _NavigationTabState extends State<NavigationTab> {
               _selected = index;
             });
           },
-          activeColor: Color(0xFF0056D7),
+          activeColor: const Color(0xFF0056D7),
           currentIndex: _selected,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home)),
@@ -48,6 +48,7 @@ class _NavigationTabState extends State<NavigationTab> {
             BottomNavigationBarItem(icon: Icon(Icons.notifications)),
             BottomNavigationBarItem(icon: Icon(Icons.person))
           ],
-        ));
+        )
+    );
   }
 }
