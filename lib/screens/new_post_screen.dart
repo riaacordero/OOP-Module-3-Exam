@@ -1,4 +1,5 @@
 import 'package:chika/database/post.dart';
+import 'package:chika/database/user.dart';
 import 'package:flutter/material.dart';
 
 class CreatePostScreen extends StatefulWidget {
@@ -41,7 +42,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                   _loading = true;
                 });
                 if (_postMessage != null && _postMessage.isNotEmpty) {
-                  Post newPost = Post(_postMessage, "admin");
+                  Post newPost = Post(currentUser, _postMessage);
                   Navigator.pop(context);
                   setState(() {
                     _loading = false;

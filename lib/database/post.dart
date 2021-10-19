@@ -1,25 +1,13 @@
+import 'package:chika/database/user.dart';
+
 class Post {
-  String username;
+  User user;
   String message;
 
-  Post(this.username, this.message);
+  Post(this.user, this.message);
 }
 
-List<Post> post = postData
-    .map(
-      (item) => Post(
-          item['username'] as String,
-          item['message'] as String,
-      ),
-    ).toList();
-
-var postData = [
-  {
-    "username": "riaacordero",
-    "message": "Hi sir gikapoy nakog code ahihi",
-  },
-  {
-    "username": "hrjugar",
-    "message": "w000000",
-  }
+List<Post> posts = [
+  Post(users[0], "Hi sir gikapoy nako'g code ahihi"),
+  Post(users[4], "w0000000")
 ];
