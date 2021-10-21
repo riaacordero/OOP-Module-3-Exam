@@ -1,4 +1,3 @@
-import 'package:chika/database/post.dart';
 import 'package:chika/others/post_list.dart';
 import 'package:flutter/material.dart';
 

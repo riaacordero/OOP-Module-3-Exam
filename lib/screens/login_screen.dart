@@ -157,8 +157,11 @@ class _LoginFormState extends State<_LoginForm> {
                           ),
                         ],
                       ),
-                    ))
-              ]),
-        ));
+                    )
+                )
+              ]
+          ),
+        )
+    );
   }
 }

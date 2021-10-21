@@ -16,8 +16,7 @@ class PostList extends StatelessWidget {
           bool hasParentPost = currentPost.parentPost != null;
           return Column(
             children: [
-              if (hasParentPost) PostItem(post: currentPost.parentPost),
-              if (hasParentPost) ..._addConnection(currentPost.parentPost),
+              if (hasParentPost) ..._addParentPostData(currentPost),
               PostItem(post: currentPost),
               const Divider()
             ],
@@ -29,8 +28,34 @@ class PostList extends StatelessWidget {
   }
 }
 
-_addConnection(Post? post) {
+_addParentPostData(Post? post) {
   return [
+    Container(
+      alignment: Alignment.topLeft,
+      padding: const EdgeInsets.only(left: 60),
+      child: Text.rich(
+        TextSpan(
+          children: [
+            const WidgetSpan(
+              child: Icon(Icons.reply_outlined, 
+                size: 20, 
+                color: Colors.black54
+              )
+            ),
+            TextSpan(
+              text: "   ${post!.user.name} replied", 
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Colors.black54
+              )
+            ),
+          ]
+        )
+
+      ),
+    ),
+    PostItem(post: post.parentPost),
     const SizedBox(height: 5),
     Container(
       alignment: Alignment.centerLeft,
