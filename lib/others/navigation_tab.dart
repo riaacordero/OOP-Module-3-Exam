@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/new_post_screen.dart';
-import '../screens/news_feed.dart';
+import '../screens/news_feed_screen.dart';
 import '../screens/notification_screen.dart';
 import '../screens/profile_screen.dart';
 import '../screens/search_screen.dart';
@@ -16,7 +16,7 @@ class _NavigationTabState extends State<NavigationTab> {
   int _selected = 0;
 
   final List _screens = const [
-    NewsFeed(),
+    NewsFeedScreen(),
     SearchScreen(),
     NotificationScreen(),
     ProfileScreen()

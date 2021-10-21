@@ -14,7 +14,6 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
       body: Center(
         child: Text("Feed")
       )
-      
     );
   }
 }

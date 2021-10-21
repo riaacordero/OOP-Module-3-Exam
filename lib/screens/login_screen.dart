@@ -2,7 +2,7 @@ import 'package:chika/others/navigation_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'news_feed.dart';
+import 'news_feed_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -142,7 +142,7 @@ class _LoginFormState extends State<_LoginForm> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                        const NewsFeed()
+                                        const NewsFeedScreen()
                                     )
                                 );
                               },
