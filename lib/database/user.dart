@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 class User {
-  String username;
+  String name;
   Image profilePicture;
 
-  User(this.username, String profilePicturePath) 
+  User(this.name, String profilePicturePath) 
     : profilePicture = Image.asset(profilePicturePath);
 }
 
 List<User> users = [
-  User("riaacordero", "assets/img/users/ria.jpg"),
-  User("renshi", "assts/img/users/neil.jpg"),
-  User("grmpnls_", "assets/img/users/gerome.jpg"),
-  User("dyemsmoreno", "assets/img/users/rendell.jpg"),
-  User("hrjugar", "assets/img/users/hernan.jpg")
+  User("riaacordero", "assets/img/profile_pictures/ria.jpg"),
+  User("renshi", "assets/img/profile_pictures/neil.jpg"),
+  User("grmpnls_", "assets/img/profile_pictures/gerome.jpg"),
+  User("dyemsmoreno", "assets/img/profile_pictures/rendell.jpg"),
+  User("hrjugar", "assets/img/profile_pictures/hernan.jpg")
 ];
 
 User currentUser = users[0];
