@@ -75,6 +75,10 @@ List<Post> getPostChildren(Post? parentPost) {
   // if (parentPost == null || parentPost.parentPost == null) return [];
   // return posts.where((post) => post.parentPost!.id == parentPost.id).toList();
   if (parentPost == null) return [];
-  return posts.where((post) => post.parentPost != null 
+
+  List<Post> _tempPost = posts.where((post) => post.parentPost != null
     && post.parentPost!.id == parentPost.id).toList();
+    
+  _tempPost.sort((b, a) => a.timePosted.compareTo(b.timePosted));
+  return _tempPost;
 }
