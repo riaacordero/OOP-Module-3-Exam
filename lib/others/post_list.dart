@@ -32,12 +32,23 @@ class PostList extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(currentPost.user.name,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16
-                              ),
+                            Row(
+                              children: [
+                                Text(currentPost.user.name,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16
+                                  ),
+                                ),
+                                Text(" · " + currentPost.timeDisplay,
+                                  style: const TextStyle(
+                                    color: Colors.black38,
+                                    fontSize: 16
+                                  ),
+                                )
+                              ],
                             ),
+                            
                             const SizedBox(height: 5),
                             Text(currentPost.message, 
                               style: const TextStyle(

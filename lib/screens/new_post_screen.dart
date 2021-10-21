@@ -42,7 +42,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                   _loading = true;
                 });
                 if (_postMessage != null && _postMessage.isNotEmpty) {
-                  Post newPost = Post(currentUser, _postMessage);
+                  // Post newPost = Post(user: currentUser, _postMessage);
                   Navigator.pop(context);
                   setState(() {
                     _loading = false;

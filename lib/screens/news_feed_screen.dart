@@ -16,6 +16,8 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            floating: true,
+            snap: true,
             backgroundColor: Color(0xFF0056D7),
             automaticallyImplyLeading: false,
             title: Center(
