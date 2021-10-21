@@ -1,5 +1,6 @@
 import 'package:chika/database/user.dart';
 import 'package:chika/database/post.dart';
+import 'package:chika/others/post_item.dart';
 import 'package:flutter/material.dart';
 
 class PostList extends StatelessWidget {
@@ -11,63 +12,32 @@ class PostList extends StatelessWidget {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          Post currentPost = posts[index];
+          Post currentPost = posts.reversed.toList()[index];
+          bool hasParentPost = currentPost.parentPost != null;
           return Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 50,
-                      height: 50,
-                      child: CircleAvatar(
-                        backgroundImage: currentPost.user.profilePicture.image
-                      ),
-                    ),
-                    Flexible(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Text(currentPost.user.name,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16
-                                  ),
-                                ),
-                                Text(" · " + currentPost.timeDisplay,
-                                  style: const TextStyle(
-                                    color: Colors.black38,
-                                    fontSize: 16
-                                  ),
-                                )
-                              ],
-                            ),
-                            
-                            const SizedBox(height: 5),
-                            Text(currentPost.message, 
-                              style: const TextStyle(
-                                fontSize: 16
-                              )
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
+              if (hasParentPost) PostItem(post: currentPost.parentPost),
+              if (hasParentPost) ..._addConnection(currentPost.parentPost),
+              PostItem(post: currentPost),
               const Divider()
             ],
-          );          
+          );     
         },
         childCount: posts.length
       )
     );
   }
+}
+
+_addConnection(Post? post) {
+  return [
+    const SizedBox(height: 5),
+    Container(
+      alignment: Alignment.centerLeft,
+      padding: const EdgeInsets.only(left: 30),
+      height: 50,
+      child: const VerticalDivider(thickness: 3)
+    ),
+    const SizedBox(height: 20)
+  ];
 }
