@@ -29,17 +29,16 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: () async {
-              if (_postMessage.isNotEmpty) {
+            onPressed: _postMessage.isEmpty
+            ? null
+            : () async {
                 Post newPost = Post(
                   user: currentUser,
                   message: _postMessage,
                   timePosted: DateTime.now(),
                   parentPost: widget.mainPost
                 );
-                setState(() {
-                  posts.add(newPost);
-                });
+                setState(() => posts.add(newPost));
 
                 Navigator.push(context, 
                   MaterialPageRoute(builder: (context) {
@@ -48,10 +47,12 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                       : PostScreen(post: widget.mainPost);
                   })
                 );
-              } else {
+
                 ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Please type something!')));
-              }
+                  const SnackBar(
+                    content: Text("Post added.")
+                  )
+                );
             },
             icon: const Icon(Icons.chevron_right, size: 30)
           )
