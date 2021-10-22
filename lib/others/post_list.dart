@@ -74,7 +74,7 @@ _addParentPostData(Post? post) {
     Container(
       alignment: Alignment.centerLeft,
       padding: const EdgeInsets.only(left: 30),
-      height: 50,
+      height: 25,
       child: const VerticalDivider(thickness: 3)
     ),
     const SizedBox(height: 20)

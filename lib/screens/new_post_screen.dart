@@ -1,7 +1,6 @@
 import 'package:chika/database/post.dart';
 import 'package:chika/database/user.dart';
 import 'package:chika/others/navigation_tab.dart';
-import 'package:chika/screens/news_feed_screen.dart';
 import 'package:chika/screens/post_screen.dart';
 import 'package:flutter/material.dart';
 
