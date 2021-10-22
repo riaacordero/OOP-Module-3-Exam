@@ -9,7 +9,7 @@ class User {
 }
 
 List<User> users = [
-  User("admin", "assets/img/profile_pictures/admin.jpg"),
+  User("admin", "assets/img/profile_pictures/admin.png"),
   User("riaacordero", "assets/img/profile_pictures/ria.jpg"),
   User("renshi", "assets/img/profile_pictures/neil.jpg"),
   User("grmpnls_", "assets/img/profile_pictures/gerome.jpg"),
