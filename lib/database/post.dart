@@ -1,6 +1,7 @@
 import 'package:chika/database/user.dart';
 
 int _postId = 0;
+
 class Post {
   int id;
   User user;
@@ -8,12 +9,12 @@ class Post {
   DateTime timePosted;
   Post? parentPost;
 
-  Post({
-    required this.user, 
-    required this.message, 
-    required this.timePosted,
-    this.parentPost
-  }) : id = _postId++;
+  Post(
+      {required this.user,
+      required this.message,
+      required this.timePosted,
+      this.parentPost})
+      : id = _postId++;
 
   String get timeDiff {
     Duration timeDiff = timePosted.difference(DateTime.now());
@@ -32,43 +33,38 @@ class Post {
 
   String get actualTime {
     return "${timePosted.year}-${timePosted.month}-${timePosted.day} "
-      "${timePosted.hour}:${timePosted.minute}";
+        "${timePosted.hour}:${timePosted.minute}";
   }
 }
 
 List<Post> _initializePosts() {
   List<Post> tempPosts = [];
   Post post1 = Post(
-    user: users[0], 
-    message: "Hi sir gikapoy nako'g code ahihi",
-    timePosted: DateTime(2021, 10, 21, 17, 32)
-  );
+      user: users[1],
+      message: "Hi sir gikapoy nako'g code ahihi",
+      timePosted: DateTime(2021, 10, 21, 17, 32));
 
   Post post2 = Post(
-    user: users[4], 
-    message: "w0000000",
-    timePosted: DateTime(2021, 10, 22, 3, 44)
-  );
+      user: users[5],
+      message: "w0000000",
+      timePosted: DateTime(2021, 10, 22, 3, 44));
 
   Post post3 = Post(
-    user: users[1], 
-    message: "A post with a very looooooooooooooooooooooooooooooong message",
-    timePosted: DateTime(2021, 10, 22, 6, 7)
-  );
+      user: users[2],
+      message: "A post with a very looooooooooooooooooooooooooooooong message",
+      timePosted: DateTime(2021, 10, 22, 6, 7));
 
   Post post4 = Post(
-    user: users[2], 
-    message: "Ako pud sir", 
-    timePosted: DateTime(2021, 10, 22, 9, 23),
-    parentPost: post1
-  );
+      user: users[3],
+      message: "Ako pud sir",
+      timePosted: DateTime(2021, 10, 22, 9, 23),
+      parentPost: post1);
 
   Post post5 = Post(
-    user: users[3],
-    message: "Anong meron?",
-    timePosted: DateTime(2021, 10, 22, 9, 47),
-    parentPost: post2
-  );
+      user: users[4],
+      message: "Anong meron?",
+      timePosted: DateTime(2021, 10, 22, 9, 47),
+      parentPost: post2);
 
   tempPosts.addAll([post1, post2, post3, post4, post5]);
   return tempPosts;
@@ -81,8 +77,10 @@ List<Post> getPostChildren(Post? parentPost) {
   // return posts.where((post) => post.parentPost!.id == parentPost.id).toList();
   if (parentPost == null) return [];
 
-  List<Post> _tempPost = posts.where((post) => post.parentPost != null
-    && post.parentPost!.id == parentPost.id).toList();
+  List<Post> _tempPost = posts
+      .where((post) =>
+          post.parentPost != null && post.parentPost!.id == parentPost.id)
+      .toList();
 
   _tempPost.sort((b, a) => a.timePosted.compareTo(b.timePosted));
   return _tempPost;
