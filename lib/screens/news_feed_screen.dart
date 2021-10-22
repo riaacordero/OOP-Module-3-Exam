@@ -25,6 +25,7 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
               )
             ),
           ),
+          SliverPadding(padding: EdgeInsets.symmetric(vertical: 4)),
           PostList(inPostScreen: false)
         ],
       )
