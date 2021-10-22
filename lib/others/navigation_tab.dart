@@ -28,7 +28,7 @@ class _NavigationTabState extends State<NavigationTab> {
         body: _screens.elementAt(_selected),
         floatingActionButton: FloatingActionButton(
           backgroundColor: const Color(0xFF0056D7),
-          child: Image.asset('assets/img/crack-a-post-icon.png',
+          child: Image.asset('assets/img/crack-a-post_icon.png',
               width: 40, height: 40, alignment: Alignment.center),
           onPressed: () {
             Navigator.push(
