@@ -26,17 +26,6 @@ class _NavigationTabState extends State<NavigationTab> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: _screens.elementAt(_selected),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color(0xFF0056D7),
-          child: Image.asset('assets/img/crack-a-post_icon.png',
-              width: 40, height: 40, alignment: Alignment.center),
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const CreatePostScreen()));
-          },
-        ),
         bottomNavigationBar: CupertinoTabBar(
           onTap: (index) {
             setState(() {
