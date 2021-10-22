@@ -4,11 +4,12 @@ class User {
   String name;
   Image profilePicture;
 
-  User(this.name, String profilePicturePath) 
-    : profilePicture = Image.asset(profilePicturePath);
+  User(this.name, String profilePicturePath)
+      : profilePicture = Image.asset(profilePicturePath);
 }
 
 List<User> users = [
+  User("admin", "assets/img/profile_pictures/admin.jpg"),
   User("riaacordero", "assets/img/profile_pictures/ria.jpg"),
   User("renshi", "assets/img/profile_pictures/neil.jpg"),
   User("grmpnls_", "assets/img/profile_pictures/gerome.jpg"),
