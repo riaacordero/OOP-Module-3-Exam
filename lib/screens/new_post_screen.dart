@@ -1,9 +1,14 @@
 import 'package:chika/database/post.dart';
 import 'package:chika/database/user.dart';
+import 'package:chika/others/navigation_tab.dart';
+import 'package:chika/screens/news_feed_screen.dart';
+import 'package:chika/screens/post_screen.dart';
 import 'package:flutter/material.dart';
 
 class CreatePostScreen extends StatefulWidget {
-  const CreatePostScreen({Key? key}) : super(key: key);
+  final Post? mainPost;
+
+  const CreatePostScreen({Key? key, this.mainPost}) : super(key: key);
 
   @override
   _CreatePostScreenState createState() => _CreatePostScreenState();
@@ -27,16 +32,23 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
           IconButton(
             onPressed: () async {
               if (_postMessage.isNotEmpty) {
+                Post newPost = Post(
+                  user: currentUser,
+                  message: _postMessage,
+                  timePosted: DateTime.now(),
+                  parentPost: widget.mainPost
+                );
                 setState(() {
-                  posts.add(
-                    Post(
-                      user: currentUser, 
-                      message: _postMessage, 
-                      timePosted: DateTime.now()
-                    )
-                  );                  
+                  posts.add(newPost);
                 });
-                Navigator.pop(context);
+
+                Navigator.push(context, 
+                  MaterialPageRoute(builder: (context) {
+                    return widget.mainPost == null
+                      ? NavigationTab()
+                      : PostScreen(post: widget.mainPost);
+                  })
+                );
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Please type something!')));

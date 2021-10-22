@@ -1,28 +1,42 @@
-import 'package:chika/database/user.dart';
 import 'package:chika/database/post.dart';
 import 'package:chika/others/post_item.dart';
 import 'package:flutter/material.dart';
 
-class PostList extends StatelessWidget {
-  final User? mainUser;
-  const PostList({Key? key, this.mainUser}) : super(key: key);
+class PostList extends StatefulWidget {
+  final bool inPostScreen;
+  final Post? mainPost;
+
+  const PostList({
+    Key? key, 
+    required this.inPostScreen, 
+    this.mainPost
+  }) : super(key: key);
 
   @override
+  State<PostList> createState() => _PostListState();
+}
+
+class _PostListState extends State<PostList> {
+  @override
   Widget build(BuildContext context) {
+    List<Post> postList = widget.inPostScreen
+      ? getPostChildren(widget.mainPost)
+      : posts.reversed.toList();
+
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          Post currentPost = posts.reversed.toList()[index];
+          Post currentPost = postList[index];
           bool hasParentPost = currentPost.parentPost != null;
           return Column(
             children: [
-              if (hasParentPost) ..._addParentPostData(currentPost),
+              if (!widget.inPostScreen && hasParentPost) ..._addParentPostData(currentPost),
               PostItem(post: currentPost),
               const Divider()
             ],
           );     
         },
-        childCount: posts.length
+        childCount: postList.length
       )
     );
   }

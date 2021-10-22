@@ -25,7 +25,7 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
               )
             ),
           ),
-          PostList()
+          PostList(inPostScreen: false)
         ],
       )
     );

@@ -15,7 +15,7 @@ class Post {
     this.parentPost
   }) : id = _postId++;
 
-  String get timeDisplay {
+  String get timeDiff {
     Duration timeDiff = timePosted.difference(DateTime.now());
     if (timeDiff.inDays > 0) {
       return timeDiff.inDays.toString() + "d";
@@ -28,6 +28,11 @@ class Post {
     } else {
       return "now";
     }
+  }
+
+  String get actualTime {
+    return "${timePosted.year}-${timePosted.month}-${timePosted.day} "
+      "${timePosted.hour}:${timePosted.minute}";
   }
 }
 
@@ -78,7 +83,7 @@ List<Post> getPostChildren(Post? parentPost) {
 
   List<Post> _tempPost = posts.where((post) => post.parentPost != null
     && post.parentPost!.id == parentPost.id).toList();
-    
+
   _tempPost.sort((b, a) => a.timePosted.compareTo(b.timePosted));
   return _tempPost;
 }
