@@ -18,39 +18,42 @@ class _PostScreenState extends State<PostScreen> {
   @override
   Widget build(BuildContext context) {
     return widget.post == null
-      ? const SizedBox(height: 0)
-      : Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              leading: BackButton(
-                onPressed: () {
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => NavigationTab()));
-                },
-              ),
-              floating: true,
-              snap: true,
-              backgroundColor: const Color(0xFF0056D7),
-              automaticallyImplyLeading: false,
-              centerTitle: true,
-              title: const Text("Post", 
-                style: TextStyle(fontWeight: FontWeight.bold)
-              ),
+        ? const SizedBox(height: 0)
+        : Scaffold(
+            body: CustomScrollView(
+              slivers: [
+                SliverAppBar(
+                  leading: BackButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NavigationTab()));
+                    },
+                  ),
+                  floating: true,
+                  snap: true,
+                  backgroundColor: const Color(0xFF0056D7),
+                  automaticallyImplyLeading: false,
+                  centerTitle: true,
+                  title: const Text("Post",
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+                SliverToBoxAdapter(child: MainPostItem(post: widget.post)),
+                PostList(inPostScreen: true, mainPost: widget.post)
+              ],
             ),
-            SliverToBoxAdapter(child: MainPostItem(post: widget.post)),
-            PostList(inPostScreen: true, mainPost: widget.post)
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color(0xFFE39600),
-          child: const Icon(Icons.add, color: Colors.white),
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) 
-                  => CreatePostScreen(mainPost: widget.post)));
-          },
-        )
-    );
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: const Color(0xFF0056D7),
+              child: Image.asset('assets/img/crack-a-post-icon.png',
+                  width: 40, height: 40, alignment: Alignment.center),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            CreatePostScreen(mainPost: widget.post)));
+              },
+            ));
   }
 }

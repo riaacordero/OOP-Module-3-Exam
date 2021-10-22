@@ -27,11 +27,14 @@ class _NavigationTabState extends State<NavigationTab> {
     return Scaffold(
         body: _screens.elementAt(_selected),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color(0xFFE39600),
-          child: const Icon(Icons.add, color: Colors.white),
+          backgroundColor: const Color(0xFF0056D7),
+          child: Image.asset('assets/img/crack-a-post-icon.png',
+              width: 40, height: 40, alignment: Alignment.center),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const CreatePostScreen()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CreatePostScreen()));
           },
         ),
         bottomNavigationBar: CupertinoTabBar(
@@ -48,7 +51,6 @@ class _NavigationTabState extends State<NavigationTab> {
             BottomNavigationBarItem(icon: Icon(Icons.notifications)),
             BottomNavigationBarItem(icon: Icon(Icons.person))
           ],
-        )
-    );
+        ));
   }
 }
